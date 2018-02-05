@@ -23,7 +23,8 @@ VOLT25 = 3.35    # 3.5
 VOLT0 = 3.25     # 3.2
 adc = Adafruit_ADS1x15.ADS1015()
 GAIN = 1
-
+#allows easier setup of different rates
+conversionRate = (4.09 / 2047.0)
 
 def changeicon(percent):
     global iconState
@@ -52,7 +53,7 @@ def readVoltage():
 
 
 def convertVoltage(sensorValue):
-    voltage = float(sensorValue) * (4.09 / 2047.0)
+    voltage = float(sensorValue) * conversionRate
     return voltage
 
 
